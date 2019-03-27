@@ -13,4 +13,5 @@ public interface IPocionService {
     public void delete(Pocion pocion);
     public Pocion save(Pocion pocion);
     public Optional<Pocion> findById(Long id);
+    public List<Pocion> findAllByOrderByDescripcionDesc();
 }

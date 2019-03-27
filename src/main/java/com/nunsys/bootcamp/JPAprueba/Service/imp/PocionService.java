@@ -41,4 +41,9 @@ public class PocionService implements IPocionService {
     public Optional<Pocion> findById(Long id) {
         return this.findById(id);
     }
+
+    @Override
+    public List<Pocion> findAllByOrderByDescripcionDesc() {
+        return this.pocionRepository.findAllByOrderByDescripcionDesc();
+    }
 }
