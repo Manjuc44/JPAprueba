@@ -10,7 +10,7 @@ public interface IPocionService {
 
     public List<Pocion> findAll();
     public List<Pocion> findByEsEpica();
-    public void delete();
-    public Pocion save();
+    public void delete(Pocion pocion);
+    public Pocion save(Pocion pocion);
     public Optional<Pocion> findById(Long id);
 }
