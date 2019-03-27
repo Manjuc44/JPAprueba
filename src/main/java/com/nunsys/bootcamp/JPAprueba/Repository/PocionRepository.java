@@ -15,6 +15,7 @@ import java.util.List;
 public interface PocionRepository extends JpaRepository<Pocion, Long> {
 
     List<Pocion> findByEsEpica(Boolean esEpica);
+    List<Pocion> findAllByOrderByDescripcionDesc();
 
 }
 

@@ -43,7 +43,10 @@ public class PocionResource {
     public Pocion updatePocion(@RequestBody Pocion pocion){
         return this.repositoryPoti.save(pocion);
     }
-
+    /*
+    ¿Como se escribe Sintaxis?
+    -Con uber
+     */
     @DeleteMapping("/pociones")
     public void deletePocion(@RequestBody Pocion pocion){
          this.repositoryPoti.delete(pocion);
@@ -51,5 +54,10 @@ public class PocionResource {
     @GetMapping("/pociones/obtenerEpicas")
     public List<Pocion> getEpicas(){
         return this.repositoryPoti.findByEsEpica(true);
+    }
+    @GetMapping("/pociones/OrdenarPorNombre")
+    public List<Pocion> getByOrden(){
+        return  this.repositoryPoti.findAllByOrderByDescripcionDesc();
+
     }
 }
