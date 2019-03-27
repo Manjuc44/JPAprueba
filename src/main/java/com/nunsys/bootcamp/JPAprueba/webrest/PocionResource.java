@@ -3,11 +3,13 @@ package com.nunsys.bootcamp.JPAprueba.webrest;
 import com.nunsys.bootcamp.JPAprueba.Repository.PocionRepository;
 import com.nunsys.bootcamp.JPAprueba.domain.Pocion;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
+import java.util.Optional;
 
 /*
  ¿que le dice una gallina a otra? Necesitamos apoyo.
- 
+
  */
 
 @RestController
@@ -29,5 +31,25 @@ public class PocionResource {
     @PostMapping("/pociones")
     public void insertPotion(@RequestBody Pocion pocion) {
         this.repositoryPoti.save(pocion);
+    }
+
+    @GetMapping("/pociones/{id}")
+    public Optional<Pocion> getPotion(@PathVariable Long id) {
+        Optional<Pocion> poti= this.repositoryPoti.findById(id);
+        return poti;
+    }
+
+    @PutMapping("/pociones")
+    public Pocion updatePocion(@RequestBody Pocion pocion){
+        return this.repositoryPoti.save(pocion);
+    }
+
+    @DeleteMapping("/pociones")
+    public void deletePocion(@RequestBody Pocion pocion){
+         this.repositoryPoti.delete(pocion);
+    }
+    @GetMapping("/pociones/obtenerEpicas")
+    public List<Pocion> getEpicas(){
+        return this.repositoryPoti.findByEsEpica(true);
     }
 }
