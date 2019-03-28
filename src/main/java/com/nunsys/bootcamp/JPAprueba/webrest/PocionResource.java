@@ -1,8 +1,7 @@
 package com.nunsys.bootcamp.JPAprueba.webrest;
 
-import com.nunsys.bootcamp.JPAprueba.Repository.PocionRepository;
+
 import com.nunsys.bootcamp.JPAprueba.Service.IPocionService;
-import com.nunsys.bootcamp.JPAprueba.Service.imp.PocionService;
 import com.nunsys.bootcamp.JPAprueba.domain.Pocion;
 import org.springframework.web.bind.annotation.*;
 

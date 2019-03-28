@@ -47,6 +47,6 @@ public class PocionService implements IPocionService {
 
     @Override
     public List<Pocion> findAllByOrderByDescripcionDesc() {
-        return this.pocionRepository.findAllByOrderByDescripcionDesc();
+        return null;
     }
 }
