@@ -3,10 +3,11 @@ package com.nunsys.bootcamp.JPAprueba.Service.imp;
 import com.nunsys.bootcamp.JPAprueba.Repository.RazaRepository;
 import com.nunsys.bootcamp.JPAprueba.Service.IRazaService;
 import com.nunsys.bootcamp.JPAprueba.domain.Raza;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class RazaService implements IRazaService {
     private RazaRepository razaRepository;
 

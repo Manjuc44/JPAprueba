@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public interface IRazaService {
+public interface IRazaService  {
 
     public List<Raza> findAll();
     public void delete(Long id);
