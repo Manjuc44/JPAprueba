@@ -5,10 +5,12 @@ package com.nunsys.bootcamp.JPAprueba.Service.imp;
 import com.nunsys.bootcamp.JPAprueba.Repository.PocionRepository;
 import com.nunsys.bootcamp.JPAprueba.Service.IPocionService;
 import com.nunsys.bootcamp.JPAprueba.domain.Pocion;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class PocionService implements IPocionService {
 
     private PocionRepository pocionRepository;
@@ -40,7 +42,7 @@ public class PocionService implements IPocionService {
 
     @Override
     public Optional<Pocion> findById(Long id) {
-        return this.findById(id);
+        return this.pocionRepository.findById(id);
     }
 
     @Override

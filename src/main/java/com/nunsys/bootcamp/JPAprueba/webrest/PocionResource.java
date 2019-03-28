@@ -50,7 +50,7 @@ public class PocionResource {
     -Con uber
      */
     @DeleteMapping("/pociones/{id}")
-    public void deletePocion(@RequestBody Long id){
+    public void deletePocion(@PathVariable Long id){
          this.pocionService.delete(id);
     }
     @GetMapping("/pociones/obtenerEpicas")
