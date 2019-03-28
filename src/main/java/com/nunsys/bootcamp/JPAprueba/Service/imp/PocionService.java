@@ -28,7 +28,8 @@ public class PocionService implements IPocionService {
     }
 
     @Override
-    public void delete(Pocion pocion) {
+    public void delete(Long id) {
+        Pocion pocion = this.pocionRepository.findById(id).get();
         this.pocionRepository.delete(pocion);
     }
 

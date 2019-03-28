@@ -21,7 +21,7 @@ public class PocionResource {
     private IPocionService pocionService;
 
     public PocionResource(IPocionService pocionService){
-        this.pocionService=pocionService;
+        this.pocionService= pocionService;
     }
 
     @GetMapping("/pociones")
@@ -49,16 +49,20 @@ public class PocionResource {
     ¿Como se escribe Sintaxis?
     -Con uber
      */
-    @DeleteMapping("/pociones")
-    public void deletePocion(@RequestBody Pocion pocion){
-         this.pocionService.delete(pocion);
+    @DeleteMapping("/pociones/{id}")
+    public void deletePocion(@RequestBody Long id){
+         this.pocionService.delete(id);
     }
     @GetMapping("/pociones/obtenerEpicas")
     public List<Pocion> getEpicas(){
         return this.pocionService.findByEsEpica();
     }
-    @GetMapping("/pociones/OrdenarPorNombre")
+    /*@GetMapping("/pociones/OrdenarPorNombre")
     public List<Pocion> getByOrden(){
         return  this.pocionService.findAllByOrderByDescripcionDesc();
+
     }
+
+    }*/
+
 }
