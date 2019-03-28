@@ -1,6 +1,8 @@
 package com.nunsys.bootcamp.JPAprueba.webrest;
 
 import com.nunsys.bootcamp.JPAprueba.Repository.PocionRepository;
+import com.nunsys.bootcamp.JPAprueba.Service.IPocionService;
+import com.nunsys.bootcamp.JPAprueba.Service.imp.PocionService;
 import com.nunsys.bootcamp.JPAprueba.domain.Pocion;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,48 +18,48 @@ import java.util.Optional;
 @RequestMapping("/api")
 
 public class PocionResource {
-    private PocionRepository repositoryPoti;
+    private IPocionService pocionService;
 
-    public PocionResource(PocionRepository repositoryPoti){
-        this.repositoryPoti=repositoryPoti;
+    public PocionResource(IPocionService pocionService){
+        this.pocionService= pocionService;
     }
 
     @GetMapping("/pociones")
     public List<Pocion> getPociones() {
-        List<Pocion> potis= repositoryPoti.findAll();
+        List<Pocion> potis= pocionService.findAll();
         return potis;
     }
 
     @PostMapping("/pociones")
     public void insertPotion(@RequestBody Pocion pocion) {
-        this.repositoryPoti.save(pocion);
+        this.pocionService.save(pocion);
     }
 
     @GetMapping("/pociones/{id}")
     public Optional<Pocion> getPotion(@PathVariable Long id) {
-        Optional<Pocion> poti= this.repositoryPoti.findById(id);
+        Optional<Pocion> poti= this.pocionService.findById(id);
         return poti;
     }
 
     @PutMapping("/pociones")
     public Pocion updatePocion(@RequestBody Pocion pocion){
-        return this.repositoryPoti.save(pocion);
+        return this.pocionService.save(pocion);
     }
     /*
     ¿Como se escribe Sintaxis?
     -Con uber
      */
-    @DeleteMapping("/pociones")
-    public void deletePocion(@RequestBody Pocion pocion){
-         this.repositoryPoti.delete(pocion);
+    @DeleteMapping("/pociones/{id}")
+    public void deletePocion(@RequestBody Long id){
+         this.pocionService.delete(id);
     }
     @GetMapping("/pociones/obtenerEpicas")
     public List<Pocion> getEpicas(){
-        return this.repositoryPoti.findByEsEpica(true);
+        return this.pocionService.findByEsEpica();
     }
-    @GetMapping("/pociones/OrdenarPorNombre")
+    /*@GetMapping("/pociones/OrdenarPorNombre")
     public List<Pocion> getByOrden(){
-        return  this.repositoryPoti.findAllByOrderByDescripcionDesc();
+        return  this.pocionService.findAllByOrderByDescripcionDesc();
 
-    }
+    }*/
 }
